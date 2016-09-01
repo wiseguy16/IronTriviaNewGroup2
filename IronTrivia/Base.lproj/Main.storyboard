@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tSe-bd-KKk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="IronTrivia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,101 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hPW-ZN-8xD">
+                                <rect key="frame" x="107" y="101" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tFq-hh-zfP">
+                                <rect key="frame" x="107" y="261" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AxQ-9o-dC1">
+                                <rect key="frame" x="107" y="345" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="twU-vy-Flr">
+                                <rect key="frame" x="107" y="181" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Avp-DW-1z6">
+            <objects>
+                <viewController id="tSe-bd-KKk" customClass="LoginViewController" customModule="TwoCans" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z8B-2T-M61"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sgk-Ki-CxO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zm6-db-R0M">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j2w-ex-Vu5">
+                                <rect key="frame" x="90" y="70" width="420" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tSe-bd-KKk" id="uxE-iU-b9c"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yUZ-ya-66M">
+                                <rect key="frame" x="90" y="117" width="420" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tSe-bd-KKk" id="RiW-bN-6et"/>
+                                </connections>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VeZ-ra-4aZ">
+                                <rect key="frame" x="-1" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Sign In" id="Ynw-Wi-31d">
+                                        <connections>
+                                            <action selector="signIn:" destination="tSe-bd-KKk" id="wTu-c7-Uw1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tRi-pl-4ji"/>
+                                    <barButtonItem title="Register" id="VeW-Q8-dCo">
+                                        <connections>
+                                            <action selector="registeruser:" destination="tSe-bd-KKk" id="AF3-9l-U8W"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Sgk-Ki-CxO" firstAttribute="top" secondItem="VeZ-ra-4aZ" secondAttribute="bottom" id="Ltt-zT-9EO"/>
+                            <constraint firstItem="yUZ-ya-66M" firstAttribute="centerX" secondItem="j2w-ex-Vu5" secondAttribute="centerX" id="RUm-PB-pir"/>
+                            <constraint firstItem="j2w-ex-Vu5" firstAttribute="width" secondItem="Zm6-db-R0M" secondAttribute="width" multiplier="0.7" id="VHP-bF-o4q"/>
+                            <constraint firstItem="yUZ-ya-66M" firstAttribute="top" secondItem="j2w-ex-Vu5" secondAttribute="bottom" constant="17" id="a0J-sH-4xg"/>
+                            <constraint firstAttribute="trailing" secondItem="VeZ-ra-4aZ" secondAttribute="trailing" id="bX2-On-Rtp"/>
+                            <constraint firstItem="j2w-ex-Vu5" firstAttribute="centerX" secondItem="Zm6-db-R0M" secondAttribute="centerX" id="eaO-4C-ONL"/>
+                            <constraint firstItem="j2w-ex-Vu5" firstAttribute="top" secondItem="Z8B-2T-M61" secondAttribute="bottom" constant="50" id="esW-ED-xCc"/>
+                            <constraint firstItem="VeZ-ra-4aZ" firstAttribute="leading" secondItem="Zm6-db-R0M" secondAttribute="leading" id="faG-af-xk0"/>
+                            <constraint firstItem="yUZ-ya-66M" firstAttribute="width" secondItem="j2w-ex-Vu5" secondAttribute="width" id="yXm-41-34G"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="j2w-ex-Vu5" id="8BY-cm-iGG"/>
+                        <outlet property="passwordTextField" destination="yUZ-ya-66M" id="aLS-91-OP6"/>
+                        <outlet property="toolbarBottomConstraint" destination="Ltt-zT-9EO" id="fZX-5D-hFe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6eh-Ez-t59" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-531" y="342"/>
         </scene>
     </scenes>
 </document>
