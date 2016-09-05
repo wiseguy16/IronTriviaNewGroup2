@@ -7,33 +7,159 @@
 //
 
 import UIKit
+import Firebase
 
-class LoginViewController: UIViewController
+class LoginViewController: UIViewController, UITextFieldDelegate
 {
-
-    override func viewDidLoad()
     
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var toolbarBottomConstraint: NSLayoutConstraint!
+    
+    override func viewDidLoad()
     {
+        
         super.viewDidLoad()
-
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
+        
+        
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewDidAppear(animated: Bool) // Runs after the view is visible to user  PUT ANIMATION HERE!!!
+    {
+        super.viewDidAppear(animated)
+        if let user = FIRAuth.auth()?.currentUser
+        {
+            userIsSignedIn(user)
+            
+        }
+    }
+    
+    // MARK: - Firebase methods
+    
+    func userIsSignedIn(user: FIRUser)
+    {
+        AppState.sharedInstance.displayName = user.displayName ?? user.email
+        AppState.sharedInstance.signedIn = true
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    deinit
+    {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-    */
-
+    
+    
+    
+    // MARK: - Action handlers
+    
+    
+    @IBAction func signIn(sender: UIBarButtonItem)
+    {
+        if let email = emailTextField.text, let password = passwordTextField.text
+        {
+            FIRAuth.auth()?.signInWithEmail(email, password: password, completion: {
+                user, error in
+                if let error = error
+                {
+                    print(error.localizedDescription)
+                    return
+                }
+                print("Sign In successfull")
+                self.userIsSignedIn(user!)
+            })
+        }
+        
+    }
+    
+    
+    @IBAction func registeruser(sender: UIBarButtonItem)
+    {
+        let firebaseAuth = FIRAuth.auth()
+        if let email = emailTextField.text, let password = passwordTextField.text
+        {
+            firebaseAuth?.createUserWithEmail(email, password: password) {
+                user, error in
+                if let error = error
+                {
+                    print(error.localizedDescription)
+                    return
+                }
+                print("USER created successfully")
+                self.setDisplayName(user!)
+            }
+        }
+        
+    }
+    
+    func setDisplayName(user: FIRUser)
+    {
+        let changeRequest = user.profileChangeRequest()
+        changeRequest.displayName = user.email!.componentsSeparatedByString("@")[0]
+        changeRequest.commitChangesWithCompletion() {
+            error in
+            
+            if let error = error
+            {
+                print(error.localizedDescription)
+                return
+            }
+            let currentUser = (FIRAuth.auth()?.currentUser!)!
+            self.userIsSignedIn(currentUser)
+            
+        }
+        
+        
+    }
+    
+    // TextField delegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        if textField == emailTextField && emailTextField.text?.characters.count>0
+        {
+            emailTextField.resignFirstResponder()
+            if passwordTextField.text?.characters.count == 0
+            {
+                passwordTextField.becomeFirstResponder()
+            }
+        } else if textField == passwordTextField && passwordTextField.text?.characters.count>0
+        {
+            passwordTextField.resignFirstResponder()
+            if emailTextField.text?.characters.count == 0
+            {
+                emailTextField.becomeFirstResponder()
+            }
+        }
+        return false
+    }
+    
+    // Helper funcs
+    
+    func keyboardDidShow(notification: NSNotification)
+    {
+        let height = notification.userInfo![UIKeyboardFrameEndUserInfoKey]?.CGRectValue().height
+        toolbarBottomConstraint.constant = height!
+    }
+    
+    func keyboardWillHide(notification: NSNotification)
+    {
+        toolbarBottomConstraint.constant = 0.0
+    }
+    
+    
+    
 }
+
+

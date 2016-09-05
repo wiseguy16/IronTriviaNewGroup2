@@ -1,0 +1,6 @@
+framework module Pods_IronTrivia {
+  umbrella header "Pods-IronTrivia-umbrella.h"
+
+  export *
+  module * { export * }
+}

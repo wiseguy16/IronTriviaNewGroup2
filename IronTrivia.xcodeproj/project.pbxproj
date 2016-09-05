@@ -7,15 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A4DC3311D7A1CD70088CE98 /* GameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DC3301D7A1CD70088CE98 /* GameItem.swift */; };
+		4A4DC3331D7B20EE0088CE98 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DC3321D7B20EE0088CE98 /* APIController.swift */; };
+		4A4DC3361D7DDE770088CE98 /* ClueBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DC3341D7DDE770088CE98 /* ClueBuilder.swift */; };
+		4A4DC3371D7DDE770088CE98 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DC3351D7DDE770088CE98 /* Game.swift */; };
+		4A4DC3391D7DDE810088CE98 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DC3381D7DDE810088CE98 /* APIResult.swift */; };
 		4AB156211D78CB49004601E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB156201D78CB49004601E7 /* AppDelegate.swift */; };
 		4AB156231D78CB49004601E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB156221D78CB49004601E7 /* ViewController.swift */; };
 		4AB156261D78CB49004601E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB156241D78CB49004601E7 /* Main.storyboard */; };
 		4AB156281D78CB49004601E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB156271D78CB49004601E7 /* Assets.xcassets */; };
 		4AB1562B1D78CB49004601E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB156291D78CB49004601E7 /* LaunchScreen.storyboard */; };
 		4AB156331D78CC6F004601E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB156321D78CC6F004601E7 /* LoginViewController.swift */; };
+		4AB156351D78CEBA004601E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AB156341D78CEBA004601E7 /* GoogleService-Info.plist */; };
+		4AB156371D78CF4B004601E7 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB156361D78CF4B004601E7 /* AppState.swift */; };
+		4F3103807B5A22918198BAC8 /* Pods_IronTrivia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5871406561D06F4399DA7D86 /* Pods_IronTrivia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06DF79032A2EF27B58D9F1DF /* Pods-IronTrivia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IronTrivia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IronTrivia/Pods-IronTrivia.debug.xcconfig"; sourceTree = "<group>"; };
+		4A4DC3301D7A1CD70088CE98 /* GameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameItem.swift; sourceTree = "<group>"; };
+		4A4DC3321D7B20EE0088CE98 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		4A4DC3341D7DDE770088CE98 /* ClueBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClueBuilder.swift; sourceTree = "<group>"; };
+		4A4DC3351D7DDE770088CE98 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		4A4DC3381D7DDE810088CE98 /* APIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
 		4AB1561D1D78CB49004601E7 /* IronTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IronTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB156201D78CB49004601E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AB156221D78CB49004601E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +38,10 @@
 		4AB1562A1D78CB49004601E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AB1562C1D78CB49004601E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AB156321D78CC6F004601E7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4AB156341D78CEBA004601E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4AB156361D78CF4B004601E7 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		5871406561D06F4399DA7D86 /* Pods_IronTrivia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IronTrivia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A47B3BFF94A0ECE1F82297A /* Pods-IronTrivia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IronTrivia.release.xcconfig"; path = "Pods/Target Support Files/Pods-IronTrivia/Pods-IronTrivia.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F3103807B5A22918198BAC8 /* Pods_IronTrivia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +61,8 @@
 			children = (
 				4AB1561F1D78CB49004601E7 /* IronTrivia */,
 				4AB1561E1D78CB49004601E7 /* Products */,
+				B93E1BAB05897F926F9D1226 /* Pods */,
+				4E41AE6A6D2079F8C4AD09E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +78,38 @@
 			isa = PBXGroup;
 			children = (
 				4AB156201D78CB49004601E7 /* AppDelegate.swift */,
+				4A4DC3341D7DDE770088CE98 /* ClueBuilder.swift */,
+				4A4DC3381D7DDE810088CE98 /* APIResult.swift */,
+				4A4DC3351D7DDE770088CE98 /* Game.swift */,
+				4A4DC3321D7B20EE0088CE98 /* APIController.swift */,
+				4AB156361D78CF4B004601E7 /* AppState.swift */,
+				4A4DC3301D7A1CD70088CE98 /* GameItem.swift */,
 				4AB156221D78CB49004601E7 /* ViewController.swift */,
+				4AB156321D78CC6F004601E7 /* LoginViewController.swift */,
 				4AB156241D78CB49004601E7 /* Main.storyboard */,
 				4AB156271D78CB49004601E7 /* Assets.xcassets */,
 				4AB156291D78CB49004601E7 /* LaunchScreen.storyboard */,
+				4AB156341D78CEBA004601E7 /* GoogleService-Info.plist */,
 				4AB1562C1D78CB49004601E7 /* Info.plist */,
-				4AB156321D78CC6F004601E7 /* LoginViewController.swift */,
 			);
 			path = IronTrivia;
+			sourceTree = "<group>";
+		};
+		4E41AE6A6D2079F8C4AD09E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5871406561D06F4399DA7D86 /* Pods_IronTrivia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B93E1BAB05897F926F9D1226 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				06DF79032A2EF27B58D9F1DF /* Pods-IronTrivia.debug.xcconfig */,
+				5A47B3BFF94A0ECE1F82297A /* Pods-IronTrivia.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +119,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AB1562F1D78CB49004601E7 /* Build configuration list for PBXNativeTarget "IronTrivia" */;
 			buildPhases = (
+				283BD6DBBFBD25D70868DFB4 /* 📦 Check Pods Manifest.lock */,
 				4AB156191D78CB49004601E7 /* Sources */,
 				4AB1561A1D78CB49004601E7 /* Frameworks */,
 				4AB1561B1D78CB49004601E7 /* Resources */,
+				2FC47761C6098140430BF27D /* 📦 Embed Pods Frameworks */,
+				B2586419216BFA93D4C22824 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB1562B1D78CB49004601E7 /* LaunchScreen.storyboard in Resources */,
+				4AB156351D78CEBA004601E7 /* GoogleService-Info.plist in Resources */,
 				4AB156281D78CB49004601E7 /* Assets.xcassets in Resources */,
 				4AB156261D78CB49004601E7 /* Main.storyboard in Resources */,
 			);
@@ -133,14 +182,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		283BD6DBBFBD25D70868DFB4 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2FC47761C6098140430BF27D /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IronTrivia/Pods-IronTrivia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2586419216BFA93D4C22824 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IronTrivia/Pods-IronTrivia-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4AB156191D78CB49004601E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A4DC3391D7DDE810088CE98 /* APIResult.swift in Sources */,
+				4A4DC3361D7DDE770088CE98 /* ClueBuilder.swift in Sources */,
 				4AB156331D78CC6F004601E7 /* LoginViewController.swift in Sources */,
 				4AB156231D78CB49004601E7 /* ViewController.swift in Sources */,
+				4A4DC3331D7B20EE0088CE98 /* APIController.swift in Sources */,
+				4A4DC3311D7A1CD70088CE98 /* GameItem.swift in Sources */,
 				4AB156211D78CB49004601E7 /* AppDelegate.swift in Sources */,
+				4AB156371D78CF4B004601E7 /* AppState.swift in Sources */,
+				4A4DC3371D7DDE770088CE98 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +354,7 @@
 		};
 		4AB156301D78CB49004601E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06DF79032A2EF27B58D9F1DF /* Pods-IronTrivia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IronTrivia/Info.plist;
@@ -262,6 +366,7 @@
 		};
 		4AB156311D78CB49004601E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A47B3BFF94A0ECE1F82297A /* Pods-IronTrivia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IronTrivia/Info.plist;
@@ -290,6 +395,7 @@
 				4AB156311D78CB49004601E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
