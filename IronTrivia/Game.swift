@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class Game
+class Game: NSObject
 {
     var clueArray = [ClueBuilder]()
     var playerName = AppState.sharedInstance.displayName!

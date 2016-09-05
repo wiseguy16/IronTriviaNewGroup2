@@ -22,12 +22,13 @@ class ViewController: UIViewController, UITextFieldDelegate, APIControllerProtoc
     private var refHandle: FIRDatabaseHandle!
     var games = Array<FIRDataSnapshot>()
     var arrayOfGames = [Game]()
-    var arrayOfDummyGames = [String: AnyObject]()
+    var arrayOfDummyGames = [[String: AnyObject]]()
    // var delegate: APIController.self
     
     var anAPIController: APIController!
     
     var aGameItem: GameItem!
+    var theGameScore = 0
     
     var game = [String: AnyObject]()
     var dummyGame = [String: AnyObject]()
@@ -35,14 +36,7 @@ class ViewController: UIViewController, UITextFieldDelegate, APIControllerProtoc
     var category: String = ""
     var question1: String = ""
     var answer1: String = ""
-    var question2: String = ""
-    var answer2: String = ""
-    var question3: String = ""
-    var answer3: String = ""
-    var question4: String = ""
-    var answer4: String = ""
-    var question5: String = ""
-    var answer5: String = ""
+
     var playerScore: String = ""
     var numberAnsweredCorrectly: String = ""
     
@@ -59,9 +53,15 @@ class ViewController: UIViewController, UITextFieldDelegate, APIControllerProtoc
     @IBOutlet weak var gameLabel1: UILabel!
     @IBOutlet weak var gameLabel2: UILabel!
     
+    @IBOutlet weak var rightOrWrongLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var correctAnswerLabel: UILabel!
+    
+    
+    
     //ROSS
     var categoryID: String = ""
-    var x=0
+    var x = 0
     /////////////////////////
     
 
@@ -82,7 +82,6 @@ class ViewController: UIViewController, UITextFieldDelegate, APIControllerProtoc
     {
         super.viewDidLoad()
         anAPIController = APIController(delegate: self)
-        //anAPIController.getPuzzleFromAPI()
         
          configureDatabase()
     }
@@ -110,10 +109,7 @@ class ViewController: UIViewController, UITextFieldDelegate, APIControllerProtoc
         refHandle = ref.child("games").observeEventType(.ChildAdded, withBlock: {
             (snapshot) -> Void in
             self.games.append(snapshot)
-           // self.arrayOfGames.append(snapshot) as! GameItem
-            //self.messages.insert(snapshot, atIndex: 0)
-            // self.tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: .Automatic)
-         //   self.tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: self.messages.count-1, inSection: 0)], withRowAnimation: .Automatic)
+        
         })
         
     }
@@ -123,17 +119,17 @@ class ViewController: UIViewController, UITextFieldDelegate, APIControllerProtoc
         if textField == gameIDTextField
         {
             gameID = gameIDTextField.text!
-            categoryTextField.becomeFirstResponder()
+        //    categoryTextField.becomeFirstResponder()
         }
         else if textField == categoryTextField
         {
             category = categoryTextField.text!
-            question1TextField.becomeFirstResponder()
+        //    question1TextField.becomeFirstResponder()
         }
         else if textField == question1TextField
         {
             question1 = question1TextField.text!
-            answer1TextField.becomeFirstResponder()
+          //  answer1TextField.becomeFirstResponder()
         }
         else if textField == answer1TextField
         {
@@ -148,43 +144,10 @@ class ViewController: UIViewController, UITextFieldDelegate, APIControllerProtoc
     
     @IBAction func send2FirebaseTapped(sender: UIButton)
     {
-//        let game = ["playerName": AppState.sharedInstance.displayName!,
-//                    "gameId": gameID,
-//                    "category": category,
-//                    "question1": question1,
-//                    "answer1": answer1,
-//                    "question2": question2,
-//                    "answer2": answer2,
-//                    "question3": question3,
-//                    "answer3": answer3,
-//                    "question4": question4,
-//                    "answer4": answer4,
-//                    "question5": question5,
-//                    "answer5": answer5,
-//                    "playerScore": playerScore,
-//                    "numberAnsweredCorrectly": numberAnsweredCorrectly
-//                    ]
-        let aNewGameItem: GameItem
+  //      let aNewGameItem: GameItem
   //     sendMessage(aNewGameItem.prepare4Firebase())
         
-        /*
-         playerName = gameDict["playerName"]!
-         gameId = gameDict["gameId"]!
-         category = gameDict["category"]!
-         playerScore = gameDict["playerScore"]!
-         numberAnsweredCorrectly = gameDict["numberAnsweredCorrectly"]!
-         question1 = gameDict["question1"]!
-         answer1 = gameDict["answer1"]!
-         question2 = gameDict["question1"]!
-         answer2 = gameDict["answer1"]!
-         question3 = gameDict["question1"]!
-         answer3 = gameDict["answer1"]!
-         question4 = gameDict["question1"]!
-         answer4 = gameDict["answer1"]!
-         question5 = gameDict["question1"]!
-         answer5 = gameDict["answer1"]!
-         */
-    }
+      }
     
     
     
@@ -195,13 +158,9 @@ class ViewController: UIViewController, UITextFieldDelegate, APIControllerProtoc
             
             
 //                if username == AppState.sharedInstance.displayName!
-//                {
-//                    let gameData = ["gameId": gameID, "category": category, "question1": question1, "answer1": answer1]
 //                    
 //                    //Push to Firebase Database
-                    ref.child("games").childByAutoId().setValue(gme)
-            
-            
+            ref.child("games").childByAutoId().setValue(gme)
 //            let gmeSnapshot = ref.child("games")
 //            games.append(gmeSnapshot)
             
@@ -226,75 +185,42 @@ class ViewController: UIViewController, UITextFieldDelegate, APIControllerProtoc
 //            }
 //            print(arrayOfGames[i].answer1)
         }
-        
       //  print(arrayOfGames)
-        
        // arrayOfGames = games as! [GameItem]
        // print("\(games[0])")
         //retrieveGamesData()
         showGameResultsData()
-        
         */
     }
     
     
     
-    func showGameResultsData()
-    {
-        let bDummyGame = arrayOfGames.last
-        //let cDummyGame = arrayOfGames.last
-        
-       // gameLabel1.text! = bDummyGame!.answer1
-      //  gameLabel2.text! = bDummyGame!.question1
-        
-//        let recentGamesSnaphot = (ref?.child("games").queryEqualToValue("sports"))!
-//         let gmeResultID = recentGamesSnaphot.valueForKey("gameId")
-//        let gmeResultQ1 = recentGamesSnaphot.valueForKey("question1")
-//        let gmeResultA1 = recentGamesSnaphot.valueForKey("answer1")
-//        print(gmeResultID)
-//        print(gmeResultQ1)
-//        print(gmeResultA1)
-        
-    }
     
     func getTheQuestions(theQuestionsDict: [String: AnyObject]) //-> Game
     {
         
         var newCluesArray = [ClueBuilder]()
-        //var answersArray = [String]()
         let anAPIResult = APIResult(resultDict: theQuestionsDict)
         
         for aClue in anAPIResult.cluesArray
         {
             let newClue = ClueBuilder(clueBuilderDict: aClue)
             newCluesArray.append(newClue)
-            //print(newClue.answer)
         }
         
         let newGameClues = newCluesArray
         let newGame = Game()
         newGame.clueArray = newGameClues
         
-        
-        //print(newGame.clueArray[3].answer)
-        
         arrayOfGames.append(newGame)
-        //return newGame
     }
     
-    // Last 100 posts, these are automatically the 100 most recent
-    // due to sorting by push() keys
- //   let recentGamesByCategoryQuery = (ref?.child("posts").queryEqualToValue("sports"))!
-    
-//    let myTopPostsQuery = (ref.child("user-posts").child(getUid())).queryOrderedByChild("starCount")
-    
-//    refHandle = postRef.observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-//    let postDict = snapshot.value as! [String : AnyObject]
-//    // ...
-//    })
-
 
     //ROSS***************
+    
+    
+    // This action sends category ID# to api and gets questions back to play game with
+    
     @IBAction func getACategoryPressed(sender: UIButton)
     {
         let userCategoryInput = getCategoryTextField.text
@@ -303,17 +229,27 @@ class ViewController: UIViewController, UITextFieldDelegate, APIControllerProtoc
         
     }
     
+    
+    // This action gets first question from the array and displays it to be answered
+    
     @IBAction func checkGamePressed(sender: UIButton)
     {
         
         questionLabel.text = arrayOfGames[0].clueArray[x].question
         answerTextField.becomeFirstResponder()
         
-        
-        
-        
+    //  let gmeSnapshot = arrayOfGames[0]
+    //   let newSnapshot = gmeSnapshot["score"] as! Int
+    //   let gmeSnapshot = ref.child("games")
+    //   games.append(gmeSnapshot)
+    //   arrayOfDummyGames.append(gme as! [String: AnyObject])
+    //   ref.child("games").childByAutoId().setValue(gme)
         
     }
+    
+    
+    
+    // This action checks if question was answwered right and retrieves next question
     
     @IBAction func checkAnswerPressed(sender: UIButton)
     {
@@ -323,22 +259,30 @@ class ViewController: UIViewController, UITextFieldDelegate, APIControllerProtoc
         if answerTextField.text?.lowercaseString == arrayOfGames[0].clueArray[x].answer.lowercaseString
         {
             print("***YOU RIGHT***")
+            rightOrWrongLabel.text = "YOU RIGHT!!!"
+            theGameScore = theGameScore + 1
         }
         else
         {
             print("***SUCK IT TREBEK***")
+            rightOrWrongLabel.text = "***SUCK IT TREBEK***"
+            theGameScore = theGameScore - 1
         }
         print(arrayOfGames[0].clueArray[x].question)
         print(arrayOfGames[0].clueArray[x].answer)
         print(arrayOfGames[0].userAnswerArray)
+         //  ref.child("games").childByAutoId().updateChildValues(["games":arrayOfGames[0]])
         
+        
+        correctAnswerLabel.text = "Correct answer is:  \(arrayOfGames[0].clueArray[x].answer)"
         x = x+1
         answerTextField.text = ""
         
+        scoreLabel.text = "\(theGameScore)"
+        
         questionLabel.text = arrayOfGames[0].clueArray[x].question
         
-        //print(arrayOfGames[0].clueArray[x-1].userAnswer)
-        //fgrg1234
+      
         
     }
 
