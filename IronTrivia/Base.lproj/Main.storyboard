@@ -136,9 +136,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg0-9Q-VUT">
-                                <rect key="frame" x="386" y="318" width="108" height="27"/>
+                                <rect key="frame" x="386" y="318" width="89" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Send Cat. ID to API"/>
+                                <state key="normal" title="Send ID# to API"/>
                                 <connections>
                                     <action selector="getACategoryPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="avC-WK-6xV"/>
                                 </connections>
